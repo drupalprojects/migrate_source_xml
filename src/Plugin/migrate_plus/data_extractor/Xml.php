@@ -2,24 +2,24 @@
 
 /**
  * @file
- * Contains \Drupal\migrate_source_xml\Plugin\migrate_plus\reader\XmlReader.
+ * Contains \Drupal\migrate_source_xml\Plugin\migrate_plus\data_extractor\Xml.
  */
 
-namespace Drupal\migrate_source_xml\Plugin\migrate_plus\reader;
+namespace Drupal\migrate_source_xml\Plugin\migrate_plus\data_extractor;
 
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\migrate\MigrateException;
-use Drupal\migrate_plus\ReaderPluginBase;
+use Drupal\migrate_plus\DataExtractorPluginBase;
 
 /**
  * Obtain XML data for migration.
  *
- * @Reader(
+ * @DataExtractor(
  *   id = "xml",
  *   title = @Translation("XML")
  * )
  */
-class XmlReader extends ReaderPluginBase implements ContainerFactoryPluginInterface {
+class Xml extends DataExtractorPluginBase implements ContainerFactoryPluginInterface {
 
   /**
    * The XMLReader we are encapsulating.
@@ -233,9 +233,6 @@ class XmlReader extends ReaderPluginBase implements ContainerFactoryPluginInterf
           $this->currentItem[$field_name] = (string) $value;
         }
       }
-      foreach ($this->configuration['ids'] as $id_field_name => $id_info) {
-        $this->currentId[$id_field_name] = $this->currentItem[$id_field_name];
-      }
     }
   }
 
@@ -261,7 +258,7 @@ class XmlReader extends ReaderPluginBase implements ContainerFactoryPluginInterf
    *
    * Gets the SimpleXMLElement some number of levels above the iterator
    * having the given name, but only for element names that this
-   * XmlReader was told to retain for future reference through the
+   * Xml data extractor was told to retain for future reference through the
    * constructor's $parent_elements_of_interest.
    *
    * @param int $levels_up
