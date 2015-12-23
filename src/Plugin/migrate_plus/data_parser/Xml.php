@@ -2,24 +2,24 @@
 
 /**
  * @file
- * Contains \Drupal\migrate_source_xml\Plugin\migrate_plus\data_extractor\Xml.
+ * Contains \Drupal\migrate_source_xml\Plugin\migrate_plus\data_parser\Xml.
  */
 
-namespace Drupal\migrate_source_xml\Plugin\migrate_plus\data_extractor;
+namespace Drupal\migrate_source_xml\Plugin\migrate_plus\data_parser;
 
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\migrate\MigrateException;
-use Drupal\migrate_plus\DataExtractorPluginBase;
+use Drupal\migrate_plus\DataParserPluginBase;
 
 /**
  * Obtain XML data for migration.
  *
- * @DataExtractor(
+ * @DataParser(
  *   id = "xml",
  *   title = @Translation("XML")
  * )
  */
-class Xml extends DataExtractorPluginBase implements ContainerFactoryPluginInterface {
+class Xml extends DataParserPluginBase implements ContainerFactoryPluginInterface {
 
   /**
    * The XMLReader we are encapsulating.
@@ -258,7 +258,7 @@ class Xml extends DataExtractorPluginBase implements ContainerFactoryPluginInter
    *
    * Gets the SimpleXMLElement some number of levels above the iterator
    * having the given name, but only for element names that this
-   * Xml data extractor was told to retain for future reference through the
+   * Xml data parser was told to retain for future reference through the
    * constructor's $parent_elements_of_interest.
    *
    * @param int $levels_up
