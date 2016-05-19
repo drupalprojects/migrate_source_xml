@@ -4,4 +4,4 @@ description: 'Migration plugin for XML sources'
 package: Migration
 core: 8.x
 dependencies:
-  - migrate (>= 8.1)
+  - drupal:migrate (>= 8.1)
