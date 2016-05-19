@@ -75,7 +75,7 @@ abstract class XmlBase extends SourcePluginBase {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $migration);
 
     if (empty($configuration['iterator_class'])) {
-      $iterator_class = '\Drupal\migrate_plus\Plugin\migrate\source\MigrateXmlIterator';
+      $iterator_class = '\Drupal\migrate_source_xml\Plugin\migrate\source\\MigrateXmlIterator';
     }
     else {
       $iterator_class = $configuration['iterator_class'];

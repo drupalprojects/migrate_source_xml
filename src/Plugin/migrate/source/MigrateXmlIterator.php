@@ -92,7 +92,7 @@ class MigrateXmlIterator implements \Iterator {
    *   The name of the MigrateXmlReader class.
    */
   public function getReaderClassName() {
-    return '\Drupal\migrate_plus\Plugin\migrate\source\MigrateXmlReader';
+    return '\Drupal\migrate_source_xml\Plugin\migrate\source\MigrateXmlReader';
   }
 
   /**
@@ -144,6 +144,13 @@ class MigrateXmlIterator implements \Iterator {
    */
   public function key() {
     return $this->currentKey;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function count() {
+    return $this->xmlSource->computeCount();
   }
 
   /**
